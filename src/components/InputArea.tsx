@@ -21,7 +21,15 @@ export const InputArea = ({onAdd}: Props) => {
     <Container>
       <InputLable>
         <InputTitle>Data<InputTitle>
-        <Input>
+        <Input type='date' value={dateField} onChange={e => setDateField(e.target.value)}/>
+      </InputLable>
+      <InputLable>
+        <InputTitle>Categoria<InputTitle>
+        <Select value={categoryField} onChange={e => setCategoryField(e.target.value)}>
+          <>
+            <option></option>
+          </>
+        </Select>
       </InputLable>
     </Container>
   
