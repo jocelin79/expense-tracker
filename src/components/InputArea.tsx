@@ -17,6 +17,8 @@ export const InputArea = ({onAdd}: Props) => {
   
   const handleAddEvent = () => {}
   
+  const
+  
   return (
     <Container>
       <InputLable>
@@ -36,9 +38,16 @@ export const InputArea = ({onAdd}: Props) => {
       </InputLable>
       <InputLable>
         <InputTitle>Título<InputTitle>
-        <Input type='text' value={dateField} onChange={e => setDateField(e.target.value)}/>
+        <Input type='text' value={titleField} onChange={e => setTitleField(e.target.value)}/>
       </InputLable>
-    </Container>
-  
+      <InputLable>
+        <InputTitle>Valor<InputTitle>
+        <Input type='number' value={valueField} onChange={e => setValueField(e.target.value)}/>
+      </InputLable>
+      <InputLable>
+        <InputTitle>&nbsp;<InputTitle>
+        <Button onClick={handleAddEvent}>Adicionar</Button>
+      </InputLable>
+    </Container>  
   );
 }
