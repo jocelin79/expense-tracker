@@ -28,8 +28,15 @@ export const InputArea = ({onAdd}: Props) => {
         <Select value={categoryField} onChange={e => setCategoryField(e.target.value)}>
           <>
             <option></option>
+            {categoryKeys.map((key, index) => (
+              <option key={index} value={key}>{categories[key].title}</option>
+            ))}
           </>
         </Select>
+      </InputLable>
+      <InputLable>
+        <InputTitle>Título<InputTitle>
+        <Input type='text' value={dateField} onChange={e => setDateField(e.target.value)}/>
       </InputLable>
     </Container>
   
