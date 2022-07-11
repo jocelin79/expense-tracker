@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import {Item} from '../types/Item';
 import {TableItem} from '../components/TableItem'
+import { useEffect } from "react";
 
 type Props = {
   list: Item[]
@@ -8,6 +9,7 @@ type Props = {
 
 
 export const TableArea = ({list}: Props) => {
+  
   return (
     <Table>
       <thead>
@@ -26,6 +28,7 @@ export const TableArea = ({list}: Props) => {
     </Table>
   );
 }
+
 
 const Table = styled.table`
   width: 100%;
