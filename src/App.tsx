@@ -27,7 +27,7 @@ const App = () => {
         </HeaderText>
       </Header>
       <Body>
-        <InfoArea />
+        <InfoArea currentMonth={currentMonth} />
         <TableArea list={filteredList} />
       </Body>
     </Container>
