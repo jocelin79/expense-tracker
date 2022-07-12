@@ -15,9 +15,23 @@ export const InputArea = ({onAdd}: Props) => {
 
   let categoryKeys: string[] = Object.keys(categories);
   
-  const handleAddEvent = () => {}
+  const handleAddEvent = () => {
+    let errors: string[] = [];
+    
+    if(isNaN(new Date(dateField).getTime())) {
+      errors.push('Data inválida!');
+    }
+    if(!) {
+      errors.push('Categoria inválida!');
+    }
+  }
   
-  const
+  const clearFields = () => {
+    setDateField('');
+    setCategoryField('');
+    setTitleField('');
+    setValueField(0);
+  }
   
   return (
     <Container>
