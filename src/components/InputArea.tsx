@@ -21,8 +21,26 @@ export const InputArea = ({onAdd}: Props) => {
     if(isNaN(new Date(dateField).getTime())) {
       errors.push('Data inválida!');
     }
-    if(!) {
+    if(!categoryKeys.includes(categoryField)) {
       errors.push('Categoria inválida!');
+    }
+    if(titleField === '') {
+      errors.push('Título vazio!');
+    }
+    if(valueField <= 0) {
+      errors.push('Valor inválido!');
+    }
+    
+    if(errors.length > 0) {
+      alert(errors.join("\n"));
+    } else {
+      onAdd({
+        date: newDateAdjusted(dateField),
+        category: categoryField,
+        title: titleField,
+        value: valueField
+      });
+      clearFields();
     }
   }
   
@@ -56,7 +74,7 @@ export const InputArea = ({onAdd}: Props) => {
       </InputLable>
       <InputLable>
         <InputTitle>Valor<InputTitle>
-        <Input type='number' value={valueField} onChange={e => setValueField(e.target.value)}/>
+        <Input type='number' value={valueField} onChange={e => setValueField(parseFloat(e.target.value))}/>
       </InputLable>
       <InputLable>
         <InputTitle>&nbsp;<InputTitle>
@@ -65,3 +83,50 @@ export const InputArea = ({onAdd}: Props) => {
     </Container>  
   );
 }
+
+const Container = styled.div`
+  background-color: #FFF;
+  box-shadow: 0px 0px 5px #CCC;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+`;
+
+const InputLabel = styled.label`
+    flex: 1;
+    margin: 10px;
+`;
+const InputTitle = styled.div`
+    font-weight: bold;
+    margin-bottom: 5px;
+`;
+const Input = styled.input`
+    width: 100%;
+    height: 30px;
+    padding: 0 5px;
+    border: 1px solid lightblue;
+    border-radius: 5px;
+`;
+const Select = styled.select`
+    width: 100%;
+    height: 30px;
+    padding: 0 5px;
+    border: 1px solid lightblue;
+    border-radius: 5px;
+`;
+const Button = styled.button`
+    width: 100%;
+    height: 30px;
+    padding: 0 5px;
+    border: 1px solid lightblue;
+    border-radius: 5px;
+    background-color: lightblue;
+    color: black;
+    cursor: pointer;
+    &:hover {
+        background-color: blue;
+        color: white;
+    }
+`;
