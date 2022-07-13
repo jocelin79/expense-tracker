@@ -21,9 +21,31 @@ const App = () => {
     setFilteredList(filterListByMonth(list, currentMonth));
   }, [list, currentMonth]);
 
+  useEffect(()=>{
+    let incomeCount = 0;
+    let expenseCount = 0;
+    
+    for(let i in filteredList) {
+      if(categories[filteredList[i].category].expense) {
+        expenseCount += filteredList[i].value;
+      } else {
+        incomeCount += filteredList[i].value;
+      }
+    }
+    
+    setIncome(incomeCount);
+    setExpense(expenseCount);
+  }, [filteredList]);
+  
   const handleMonthChange = (newMonth: string) => {
     setCurrentMounth(newMonth)
   };
+  
+  const handleAddItem = (item: Item) => {
+    let newlist = [...list];
+    newList.push(item);
+    setList(newList);
+  }
 
   return (
     <Container>
@@ -37,7 +59,11 @@ const App = () => {
           currentMonth={currentMonth}
           onMonthChange={handleMonthChange}
           income={income}
+          expense={expense}
         />
+        
+        <InputArea onAdd={handleAddItem}/>
+        
         <TableArea list={filteredList} />
       </Body>
     </Container>
