@@ -1,6 +1,6 @@
 # Expense-tracker
 <p align="center">
-  <img alt="jogo da memória" src="github/preview.png" width="100%">
+  <img alt="Expense-tracker" src="github/preview.png" width="100%">
 </p>
 
 ## 💻 Projeto
