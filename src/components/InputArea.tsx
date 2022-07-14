@@ -1,7 +1,8 @@
 import {useState} from 'react';
-import {Item} from '../../types/Item';
-import {categories} from '../../data/categories';
-import {newDateAdjusted} from '../../helpers/dateFilter';
+import {Item} from '../types/Item';
+import {categories} from '../data/categories';
+import styled from 'styled-components';
+import {newDateAdjusted} from '../helpers/dateFilter';
 
 type Props = {
   onAdd: (item: Item) => void; 
@@ -52,13 +53,14 @@ export const InputArea = ({onAdd}: Props) => {
   }
   
   return (
+    
     <Container>
-      <InputLable>
-        <InputTitle>Data<InputTitle>
+      <InputLabel>
+        <InputTitle>Data</InputTitle>
         <Input type='date' value={dateField} onChange={e => setDateField(e.target.value)}/>
-      </InputLable>
-      <InputLable>
-        <InputTitle>Categoria<InputTitle>
+      </InputLabel>
+      <InputLabel>
+        <InputTitle>Categoria</InputTitle>
         <Select value={categoryField} onChange={e => setCategoryField(e.target.value)}>
           <>
             <option></option>
@@ -67,20 +69,20 @@ export const InputArea = ({onAdd}: Props) => {
             ))}
           </>
         </Select>
-      </InputLable>
-      <InputLable>
-        <InputTitle>Título<InputTitle>
+      </InputLabel>
+      <InputLabel>
+        <InputTitle>Título</InputTitle>
         <Input type='text' value={titleField} onChange={e => setTitleField(e.target.value)}/>
-      </InputLable>
-      <InputLable>
-        <InputTitle>Valor<InputTitle>
+      </InputLabel>
+      <InputLabel>
+        <InputTitle>Valor</InputTitle>
         <Input type='number' value={valueField} onChange={e => setValueField(parseFloat(e.target.value))}/>
-      </InputLable>
-      <InputLable>
-        <InputTitle>&nbsp;<InputTitle>
+      </InputLabel>
+      <InputLabel>
+        <InputTitle>&nbsp;</InputTitle>
         <Button onClick={handleAddEvent}>Adicionar</Button>
-      </InputLable>
-    </Container>  
+      </InputLabel>
+    </Container> 
   );
 }
 
